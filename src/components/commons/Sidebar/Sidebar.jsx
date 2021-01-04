@@ -19,18 +19,23 @@ export const Sidebar = () => {
                         </div>
                     </li>
                     <li className="hover:bg-gray-300">
-                        <div className="h-8 w-full">
+                        <div className="h-8 w-full opacity-10 pointer-events-none">
                             <Link to="/graph" className="text-gray-900"> Graph </Link>
                         </div>
                     </li>
                     <li className="hover:bg-gray-300">
-                        <div className="h-8 w-full">
+                        <div className="h-8 w-full opacity-10 pointer-events-none">
                             <Link to="/chart" className="text-gray-900"> Chart </Link>
                         </div>
                     </li>
                     <li className="hover:bg-gray-300">
-                        <div className="h-8 w-full">
+                        <div className="h-8 w-full opacity-10 pointer-events-none">
                             <Link to="/report" className="text-gray-900"> Report </Link>
+                        </div>
+                    </li>
+                    <li className="hover:bg-gray-300">
+                        <div className="h-8 w-full">
+                            <Link to="/singleRequest" className="text-gray-900"> Single Request </Link>
                         </div>
                     </li>
                 </ul>

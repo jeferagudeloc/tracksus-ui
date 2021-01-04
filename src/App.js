@@ -7,23 +7,37 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Home } from './components/Home/Home';
+
+import { Sidebar } from './components/commons/Sidebar/Sidebar';
+import { Header } from './components/commons/Header/Header';
+import { Projects } from './components/Projects/Projects';
+
+
 import { Login } from './components/Login/Login';
+import { SingleRequest } from './components/SingleRequest/SingleRequest';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-       <Switch>
-         <Router path="/login">
-          <Login/>
-         </Router>
-         <Router path="/">
-           <Home/>
-         </Router>
-       </Switch>
+    <div className="App">
+        <Router path="/">
+        <div className="container">
+            <div id="app" className="h-screen flex">
+            <div className="w-20 sm:w-36">
+                <Sidebar/>
+            </div>
+            <div className="bg-gray-100 w-full">
+                <Header/>
+                <Switch>
+                    <Route path="/projects" component={Projects}>
+                    </Route>
+                    <Route path="/singleRequest" component={SingleRequest}>
+                    </Route>
+                </Switch>
+            </div>
+          </div>
+        </div>
+        </Router>
       </div>
-    </Router>
   );
 }
 
