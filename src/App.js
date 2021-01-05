@@ -14,12 +14,13 @@ import { Projects } from './components/Projects/Projects';
 
 
 import { Login } from './components/Login/Login';
-import { SingleRequest } from './components/SingleRequest/SingleRequest';
+import  SingleRequest  from './components/SingleRequest/SingleRequest';
+import { Home } from './components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-        <Router path="/">
+        <Router>
         <div className="container">
             <div id="app" className="h-screen flex">
             <div className="w-20 sm:w-36">
@@ -31,6 +32,8 @@ function App() {
                     <Route path="/projects" component={Projects}>
                     </Route>
                     <Route path="/singleRequest" component={SingleRequest}>
+                    </Route>
+                    <Route path="/" component={Home}>
                     </Route>
                 </Switch>
             </div>

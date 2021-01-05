@@ -9,7 +9,10 @@ export const Sidebar = () => {
     return (
         <div className="container border-r-2 border-gray-600 h-full">
             <div className="pt-4">
-                <img className="m-1.5 h-12 w-50 " src={logo} alt="Workflow"/>
+                <Link to="/" className="text-gray-900"> 
+                    <img className="m-1.5 h-12 w-50 " src={logo} alt="Workflow"/>
+                </Link>
+                
             </div>
             <div className="mt-4">
                 <ul>
