@@ -13,7 +13,7 @@ export class RequestService {
             .then((result) => {
                 let requestProcess = [];
                 let requestFromBakend = result.data['_embedded'].requests;
-                if (requestFromBakend!= undefined && requestFromBakend.length != 0) {
+                if (requestFromBakend != undefined && requestFromBakend.length != 0) {
                     requestFromBakend.forEach(element => {
                         let res = {
                             url: element.url,
@@ -21,13 +21,23 @@ export class RequestService {
                             method: element.method,
                         };
                         requestProcess.push(res);
-                    });  
+                    });
                 }
-                
+
                 console.log(requestProcess);
                 return requestProcess;
             }).catch((error) => {
-                console.log(error);
+                throw new Error(error)
             });
     }
+
+    // async saveRequests(request) {
+    //     var url = ServiceUrl.GET_REQUEST;
+    //     return axios.post(url, body)
+    //         .then((result) => {
+    //             return requestProcess;
+    //         }).catch((error) => {
+    //             console.log(error);
+    //         });
+    // }
 }
