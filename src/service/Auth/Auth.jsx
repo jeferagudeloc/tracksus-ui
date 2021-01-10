@@ -1,14 +1,17 @@
-import React from 'react'
+import Cookies from 'universal-cookie';
 
-export const signInAuth = async (email, password) => {
-    localStorage.setItem('email', email)
-    localStorage.setItem('password', password)
-    return true;
+export const signInAuth = async (e, emailArg, passwordArg) => {
+    const form = e.target;
+    const email = form.querySelector('input[type=email]')
+    const password = form.querySelector('input[type=password]')
+    email.value = emailArg;
+    password.value = passwordArg;
+    form.submit()
 }
 
 export const signOutAuth = async () => {
-    localStorage.removeItem('email');
-    localStorage.removeItem('password');
+    const cookies = new Cookies();
+    cookies.remove("user_session");
     return true;
 }
 

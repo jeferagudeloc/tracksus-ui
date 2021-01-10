@@ -24,7 +24,7 @@ export const Login = () => {
   const handleSubmit = (e) => {
 
     e.preventDefault();
-    signIn(email, password)
+    signIn(e, email, password)
       .then(res => {
         history.push('/');
       })
@@ -54,7 +54,7 @@ export const Login = () => {
                 </a>
                 </p>
               </div>
-              <form class="mt-8 space-y-6" onSubmit={handleSubmit}>
+              <form class="mt-8 space-y-6" onSubmit={handleSubmit}  action="http://localhost:8080/login/redirect" method="post">
                 <input type="hidden" name="remember" value="true" />
                 <div class="rounded-md shadow-sm -space-y-px">
                   <div>

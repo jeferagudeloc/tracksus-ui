@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { signInAuth, signOutAuth, validateLogin } from '../service/Auth/Auth';
+import Cookies from 'universal-cookie';
+
 
 export const AuthContext = createContext(null);
 
@@ -8,16 +10,20 @@ export const AuthProvider = (props) => {
     const [userState, setUserState] = useState(null);
     const [authPending, setAuthPending] = useState(true);
 
-    const signIn = (email, password) => {
-        console.log(`email: ${email}, password: ${password}`)
-        return signInAuth(email, password)
+    const signIn = (e, email, password) => {
+        return signInAuth(e, email, password)
     }
     const signOut = () => signOutAuth();
 
     useEffect(() => {
         validateLogin()
             .then(userAuth => {
-                setUserState(true);
+                let existSessionCookie = false; 
+                const cookies = new Cookies();
+                if (cookies.get('user_session') != undefined) {
+                    existSessionCookie = true;
+                }
+                setUserState(existSessionCookie);
                 setAuthPending(false);
             })
     }, [])
