@@ -2,6 +2,6 @@
 const backend = 'http://localhost:8080'
 
 export default Object.freeze({
-  GET_REQUEST: `${backend}/requests`
+  REQUEST_URL: `${backend}/requests`
 })
  
